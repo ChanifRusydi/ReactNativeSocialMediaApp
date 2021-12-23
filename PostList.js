@@ -20,5 +20,12 @@ export const PostList = ({ navigation }) => {
     }, []);
 
     return(
-        <View style={{flex: 1, padding: 10,backgroundColor:'red'}} >
+        <View style={{flex: 1, padding: 10,backgroundColor:'red'}}>
+            {data.map((item, index) => (
+                <TouchableOpacity onPress={() => navigation.navigate('Post', {}
+            ))}
+            
+
+        </View>
     )
+}   
