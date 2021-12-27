@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-import {View, Text, Button, Image, TextInput,StyleSheet} from 'react-native';
+import { useState } from 'react';
+import {View, Text, Button, TextInput,StyleSheet, SafeAreaView} from 'react-native';
+import { Dimensions } from 'react-native'
 
-export const FormAdd = ({ route,navigation }) => {
-    const[username, setUsername] = useState('');
-    cosnt[textInputPost, setTextInputPost] = useState('')
+const FormAdd = ({ route,navigation }) => {
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
+    const[username, setUsername] = useState('chanifrusydi');
+    const[textInputPost, setTextInputPost] = useState('')
 
     const saveData = async () => {
         try{
@@ -27,17 +30,25 @@ export const FormAdd = ({ route,navigation }) => {
             navigation.navigate('PostList');
         }
     }
-        return (
-            <View style={{flex:1}}>
-                <Text style={{color:'white'}}>Post</Text>
-                <TextInput placeholder='tulis post anda'  style={styles.input} onChangeText={(text) => setTextInputPost(text)}/>
-                <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                    <Button style={styles.button} title='save' onPress={saveData}/>
-                    <Button style={styles.button} title='cancel' onPress={() => navigation.goBack()}/> 
-                </View>
+    return (
+        <SafeAreaView style={{flex:1}}>
+            <Text style={{color:'white'}}>Post</Text>
+            <TextInput placeholder='tulis post anda'  style={{
+            alignSelf: 'center',
+            width: windowWidth - 60,
+            borderColor: 'black',
+            borderWidth: 1,
+            padding: 10,
+            margin: 10,
+            borderRadius: 5,
+            fontSize: 18,
+            color: 'black'}} onChangeText={(text) => setTextInputPost(text)}/>
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                    <Button title='save' onPress={saveData}/>
+                    <Button title='cancel' onPress={() => navigation.goBack()}/> 
             </View>
-        );
-
+        </SafeAreaView>
+    );
     const styles = StyleSheet.create({
         input:{
             borderColor: 'black',
@@ -59,3 +70,4 @@ export const FormAdd = ({ route,navigation }) => {
         }
     });
 }
+export default FormAdd;
