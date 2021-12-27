@@ -15,6 +15,7 @@ export const FormAdd = ({ route,navigation }) => {
                     text: textInputPost
                 }),
                 headers: {
+                    Accept: 'application/json',
                     'Content-Type': 'application/json'
                 }
             });
@@ -23,37 +24,38 @@ export const FormAdd = ({ route,navigation }) => {
         }catch(error){
             console.log(error);
         }finally{
-            navigation.navigate
+            navigation.navigate('PostList');
         }
-
-        return (
-            <View style={{flex:1, padding:4, backgroundColor:'black'}}>
-                <Text style={{color:'white'}}>{item.userId}</Text>
-                <TextInput placeholder='tulis post anda'  style={StyleSheet.input} onChangeText={(text) => setTextInputPost(text)}/>
-
-        )
-    
-    
-    
-const styles = StyleSheet.create({
-    input: {
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 10,
-        margin: 10,
-        borderRadius: 5,
-        fontSize: 18,
-        color: 'black'
-    },
-    button: {
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 10,
-        margin: 10,
-        borderRadius: 5,
-        fontSize: 18,
-        color: 'black'
     }
-});
+        return (
+            <View style={{flex:1}}>
+                <Text style={{color:'white'}}>Post</Text>
+                <TextInput placeholder='tulis post anda'  style={styles.input} onChangeText={(text) => setTextInputPost(text)}/>
+                <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                    <Button style={styles.button} title='save' onPress={saveData}/>
+                    <Button style={styles.button} title='cancel' onPress={() => navigation.goBack()}/> 
+                </View>
+            </View>
+        );
 
-export default FormAdd;
+    const styles = StyleSheet.create({
+        input:{
+            borderColor: 'black',
+            borderWidth: 1,
+            padding: 10,
+            margin: 10,
+            borderRadius: 5,
+            fontSize: 18,
+            color: 'black'
+        },
+        button: {
+            borderColor: 'black',
+            borderWidth: 1,
+            padding: 10,
+            margin: 10,
+            borderRadius: 5,
+            fontSize: 18,
+            color: 'black'
+        }
+    });
+}
