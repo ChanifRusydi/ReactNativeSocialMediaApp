@@ -9,7 +9,7 @@ import {Register as RegisterScreen} from './Register';
 const WelcomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome To our Social Media App</Text>
+            <Text style={styles.welcome}>Welcome To Social Media App</Text>
             <Button title='Log In' onPress={() => navigation.navigate('LogIn')} />
             <Button title='Sign Up' onPress={() => navigation.navigate('Register')} />
         </SafeAreaView>
@@ -31,8 +31,8 @@ const WelcomeStack = () => {
 
 const styles = StyleSheet.create({
     welcome:  {
-        fontSize: 30,
-        color: 'white',
+        fontSize: 24,
+        color: 'black',
         fontWeight: 'bold',
         textAlign: 'center',
         margin: 10
