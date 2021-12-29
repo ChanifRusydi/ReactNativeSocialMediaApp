@@ -6,7 +6,7 @@ import { Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-const Register = () => {
+export const Register = () => {
     return(
         <SafeAreaView style={{flex:1,alignItems:'center',justifyContent:'center'}}>
             <Text style={styles.textregister}>Register</Text>

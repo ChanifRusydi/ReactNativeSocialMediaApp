@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-native';
 
-const LogIn =() => {
+export const LogIn =() => {
         return(
         <SafeAreaView>
             <Text>LogIn</Text>
