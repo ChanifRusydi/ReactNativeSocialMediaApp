@@ -2,14 +2,11 @@ import React from 'react';
 import { Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-native';
 
-
-
 const LogIn =() => {
         return(
         <SafeAreaView>
             <Text>LogIn</Text>
             <Text>Doesnt have account yet?</Text>
-
             <Button title='Register'></Button>
         </SafeAreaView>
         );
