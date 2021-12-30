@@ -1,15 +1,17 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { PostList as PostListScreen } from './PostList';
 
-
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 const AppHome = () => {
     return (  
         <NavigationContainer>
-            <Stack.Navigator initialRouteName>
-                <Stack.Screen name="Home" component={Home} />
-            </Stack.Navigator>
+            <Tab.Navigator initialRouteName>
+                <Tab.Screen name="Home" component={PostListScreen} />
+                <Tab.Screen name="Profile" component={PostListScreen} />
+                
+            </Tab.Navigator>
         </NavigationContainer>
 
     );

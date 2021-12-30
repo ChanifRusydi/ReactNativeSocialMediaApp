@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 export const PostList = ({ navigation }) => {
     const [data, setData] = useState([]);
@@ -20,12 +21,25 @@ export const PostList = ({ navigation }) => {
     }, []);
 
     return(
+        <SafeAreaView>
         <View style={{flex: 1, padding: 10,backgroundColor:'red'}}>
             {data.map((item, index) => (
                 <TouchableOpacity onPress={() => navigation.navigate('Post', {}
+                )} key={index}>
+                    <Text>{item.title}</Text>
+                </TouchableOpacity>
             ))}
-            
-
         </View>
+        </SafeAreaView>
     )
-}   
+} 
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+export default PostList;
