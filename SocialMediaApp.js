@@ -9,8 +9,9 @@ const AppHome = () => {
         <NavigationContainer>
             <Tab.Navigator initialRouteName>
                 <Tab.Screen name="Home" component={PostListScreen} />
-                <Tab.Screen name="Profile" component={PostListScreen} />
-                
+                <Tab.Screen name="Search" component={SearchScreen} />
+                <Tab.Screen name="Notifications" component={NotificationsScreen} />
+                <Tab.Screen name="Profile" component={ProfileScreen} />
             </Tab.Navigator>
         </NavigationContainer>
 

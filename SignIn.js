@@ -1,9 +1,19 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {AppHome as Home} from './SocialMediaApp';
 import { Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
-
+const stack = createNativeStackNavigator();
+const SignInStack = () => {
+    return (
+        <stack.Navigator>
+            <stack.Screen name="Login" component={Login} />
+            <stack.Screen name="Home" component={Home} />
+        </stack.Navigator>
+    )
+}
 export const Login = ({ navigation }) => {
     return (
         
@@ -16,7 +26,7 @@ export const Login = ({ navigation }) => {
 
             <View styles={styles.buttonContainer}>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PostList')} >
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(Home)} >
             <Text style={styles.buttonText}> Login </Text>
             </TouchableOpacity>
 
@@ -38,6 +48,16 @@ export const Login = ({ navigation }) => {
         </SafeAreaView>
     )
 }
+
+// const stack = createNaStackNavigator();
+// const SignInStack = () => {
+//     return (
+//         <stack.Navigator>
+//             <stack.Screen name="Login" component={Login} />
+//             <stack.Screen name="SocialMediaApp" component={SocialMediaApp} />
+//         </stack.Navigator>
+//     )
+// }
 
 const styles = StyleSheet.create({
     container: {
