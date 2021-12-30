@@ -18,15 +18,15 @@ export const Login = ({ navigation }) => {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('ForgotPw')} >
-            <Text style={{color: 'blue', alignItems: 'center', justifyContent: 'center', marginLeft: 100, marginTop: 10, }}>Forgotten your password?</Text>
+            <Text style={{color: 'blue', alignSelf: 'center', justifyContent: 'center', marginTop: 10, }}>Forgot your password?</Text>
             </TouchableOpacity>
 
-            <View style={{padding: 30, flexDirection:'row', justifyContent: 'center', marginLeft: 20}}>
+            <View style={{padding: 10, flexDirection:'row', justifyContent: 'center', marginLeft: 20}}>
                 <Text style={{fontSize: 17}}>
-                    Dont have an account?
+                    Doesn't have an account?   
                 </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                    <Text style={{color:'blue', fontSize: 17}}>
+                    <Text style={{color:'blue', fontSize: 16}}>
                         SignUp
                     </Text>
                 </TouchableOpacity>
@@ -45,24 +45,27 @@ const styles = StyleSheet.create({
     },
 
     formInput: {
+        marginHorizontal: 20,
         height: 50,
         backgroundColor: 'white',
         borderRadius: 15,
         padding: 10,
         marginTop: 10,
-        borderWidth: 1,
+        borderWidth: 2,
     },
 
-   buttonText: {
+    buttonText: {
+       fontSize: 20,
+       fontWeight: 'bold',
        color: 'white',
-   },
-
-    
+       alignSelf: 'center',
+    },
     button: {
+        width: 200,
         backgroundColor: 'blue',
-        borderRadius: 15,
-        height: 50,
-        alignItems: 'center',
+        borderRadius: 20,
+        height: 40,
+        alignSelf: 'center',
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
