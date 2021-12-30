@@ -22,8 +22,8 @@ const WelcomeStack = () => {
      <NavigationContainer>
         <stack.Navigator>
             <stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} />
-            <stack.Screen name='SignIn' component={SignInScreen} options={{ headerShown: false }} />
-            <stack.Screen name='SignUp' component={SignUpScreen} options={{ headerShown: false }} />
+            <stack.Screen name='SignIn' component={SignInScreen} options={{ headerShown: true }} />
+            <stack.Screen name='SignUp' component={SignUpScreen} options={{ headerShown: true }} />
         </stack.Navigator>
     </NavigationContainer>
     );

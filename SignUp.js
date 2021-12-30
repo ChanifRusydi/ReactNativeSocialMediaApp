@@ -18,7 +18,7 @@ export const SignUp = ({ navigation }) => {
                 <Text style={styles.buttonText}> Register </Text>
                 </TouchableOpacity>
             </View>
-           <Button title="Back to Welcome Screen" onPress={() => navigation.goBack()} />
+           {/* <Button title="Back to Welcome Screen" onPress={() => navigation.goBack()} /> */}
         </SafeAreaView>
     )
 }
@@ -47,13 +47,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         fontWeight: 'bold',
+        alignSelf: 'center',
     },
     button: {
-        marginHorizontal: 20,
-        backgroundColor: '#39F61D',
+        width: width - 40,
+        backgroundColor: 'blue',
         borderRadius: 15,
-        height: 50,
-        alignItems: 'center',
+        height: 40,
+        alignSelf: 'center',
         justifyContent: 'center',
         marginTop: 20,
         marginBottom: 10,

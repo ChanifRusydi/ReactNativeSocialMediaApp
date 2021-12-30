@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
+import { Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
+
 
 export const Login = ({ navigation }) => {
     return (
@@ -23,10 +26,10 @@ export const Login = ({ navigation }) => {
 
             <View style={{padding: 10, flexDirection:'row', justifyContent: 'center', marginLeft: 20}}>
                 <Text style={{fontSize: 17}}>
-                    Doesn't have an account?   
+                    Doesn't have an account?  
                 </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                    <Text style={{color:'blue', fontSize: 16}}>
+                    <Text style={{color:'blue', fontSize: 16, marginLeft:5}}>
                         SignUp
                     </Text>
                 </TouchableOpacity>
@@ -41,16 +44,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         justifyContent: 'center',
-        paddingHorizontal: 14,
+        paddingHorizontal: 10,
     },
 
     formInput: {
         marginHorizontal: 20,
-        height: 50,
+        height:50,
         backgroundColor: 'white',
         borderRadius: 15,
         padding: 10,
         marginTop: 10,
+        marginBottom: 10,
         borderWidth: 2,
     },
 
@@ -61,13 +65,13 @@ const styles = StyleSheet.create({
        alignSelf: 'center',
     },
     button: {
-        width: 200,
+        width: width - 40,
         backgroundColor: 'blue',
-        borderRadius: 20,
+        borderRadius: 10,
         height: 40,
         alignSelf: 'center',
         justifyContent: 'center',
-        marginTop: 10,
+        marginTop: 20,
         marginBottom: 10,
         
 
