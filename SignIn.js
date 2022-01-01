@@ -18,8 +18,8 @@ export const Login = ({ navigation }) => {
 
             <View styles={styles.buttonContainer}>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')} >
-            <Text style={styles.buttonText}> Login </Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate()} >
+            <Text style={styles.buttonText}> Log In </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('ForgotPw')} >

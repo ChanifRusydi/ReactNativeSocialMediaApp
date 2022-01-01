@@ -14,7 +14,7 @@ export const SignUp = ({ navigation }) => {
             <TextInput placeholder="Password" style={styles.formInput} />
         
             <View styles={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')} >
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate()} >
                 <Text style={styles.buttonText}> Register </Text>
                 </TouchableOpacity>
             </View>
