@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {AppHome as Home} from './SocialMediaApp';
 import { PostList as PostListTab }  from './PostList';
 import { Dimensions } from 'react-native';
+import { auth } from '../firebase';
+import { getUser } from 'firebase/auth';
 const { width, height } = Dimensions.get('window');
 
 export const Login = ({ navigation }) => {
@@ -12,8 +14,8 @@ export const Login = ({ navigation }) => {
             <SafeAreaView style={styles.container}>
             
             {/* <Image style={{ width: 150, height: 50, marginLeft: 100, marginBottom: 20 }} source={require('./images/logo.png')} /> */}
-            <TextInput placeholder="Phone number, username or email address" style={styles.formInput} />
-            <TextInput placeholder="Password" style={styles.formInput} />
+            <TextInput placeholder="Phone number, username or email address" style={styles.formInput} value={email} onChangeText={setEmail}/>
+            <TextInput placeholder="Password" style={styles.formInput} value={password} onChangeText={setPassword}/>
             
 
             <View styles={styles.buttonContainer}>
@@ -43,6 +45,8 @@ export const Login = ({ navigation }) => {
 
 const stack = createNativeStackNavigator();
 export const SignInStack = () => {
+    const {email, setEmail} = React.useState('');
+    const {password, setPassword} = React.useState('');
     return (
         <stack.Navigator>
             <stack.Screen name='Login' component={Login} />
