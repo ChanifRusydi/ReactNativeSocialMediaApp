@@ -1,26 +1,42 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, TextInput, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, TextInput, Image, Alert} from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {AppHome as Home} from './SocialMediaApp';
 import { PostList as PostListTab }  from './PostList';
-import { Dimensions } from 'react-native';
+import { Dimensions } from'react-native';
+import { useState } from 'react';
 import { auth } from '../firebase';
-import { getUser } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 const { width, height } = Dimensions.get('window');
 
 export const Login = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const onLogin = () => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          console.log(userCredential);
+          console.log('Signed in');
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    };
     return (
-        
             <SafeAreaView style={styles.container}>
-            
             {/* <Image style={{ width: 150, height: 50, marginLeft: 100, marginBottom: 20 }} source={require('./images/logo.png')} /> */}
-            <TextInput placeholder="Phone number, username or email address" style={styles.formInput} value={email} onChangeText={setEmail}/>
+            <TextInput placeholder="Email Address" style={styles.formInput} value={email} onChangeText={setEmail}/>
             <TextInput placeholder="Password" style={styles.formInput} value={password} onChangeText={setPassword}/>
             
 
             <View styles={styles.buttonContainer}>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate()} >
+            <TouchableOpacity style={styles.button} onPress={onLogin} >
             <Text style={styles.buttonText}> Log In </Text>
             </TouchableOpacity>
 
